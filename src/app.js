@@ -44,23 +44,20 @@ app.put("/repositories/:id", (request, response) => {
   
   if(repositoryIndex === -1)
     return response.status(400).json({ error: "Repository not found" })
-  /**
-   * Result for passing on the test !!!!
-   * 
-   * const updatedRepository = {
-   *  id,
-   *  title,
-   *  url,
-   *  techs,
-   *  likes: repositories[repositoryIndex].likes
-   * }
-   *
-   * repositories[repositoryIndex] = updatedRepository
-   * return response.json(updatedRepository)
-   */
+    const updatedRepository = {
+     id,
+     title,
+     url,
+     techs,
+     likes: repositories[repositoryIndex].likes
+    }
+   
+    repositories[repositoryIndex] = updatedRepository
+    return response.json(updatedRepository)
+   
 
   //Alteration
-  let updateTechs = repositories[repositoryIndex].techs
+  /*let updateTechs = repositories[repositoryIndex].techs
 
   techs.forEach(tech => {
     if(!updateTechs.find(data => data === tech))
@@ -77,7 +74,7 @@ app.put("/repositories/:id", (request, response) => {
 
   repositories[repositoryIndex] = updatedRepository
 
-  return response.json(updatedRepository)
+  return response.json(updatedRepository)*/
   
 });
 
